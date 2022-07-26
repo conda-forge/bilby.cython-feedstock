@@ -22,9 +22,11 @@ requirements:
     - numpy
     - pip
     - python
+    - setuptools-scm
   run:
     - python
     - {{ pin_compatible('numpy') }}
+    - python-lal
 
 test:
   imports:
