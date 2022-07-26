@@ -36,6 +36,7 @@ test:
     - pip check
   requires:
     - pip
+    - lalsuite
 
 about:
   home: https://git.ligo.org/colm.talbot/bilby-cython
