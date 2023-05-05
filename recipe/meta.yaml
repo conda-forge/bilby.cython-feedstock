@@ -36,13 +36,19 @@ requirements:
     - {{ pin_compatible('numpy') }}
 
 test:
-  imports:
-    - bilby_cython
-    - bilby_cython.geometry
-  commands:
-    - pip check
   requires:
     - pip
+    # requirements for testing
+    - astropy  # [unix]
+    - bilby  # [unix]
+    - pytest  # [unix]
+    - python-lal  # [unix]
+  commands:
+    # check metadata
+    - python -m pip check
+    - python -m pip show bilby-cython
+    # run test suite
+    - python -m pytest -ra -v --pyargs bilby_cython.test  # [unix]
 
 about:
   home: https://git.ligo.org/colm.talbot/bilby-cython
