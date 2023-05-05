@@ -8,11 +8,14 @@ package:
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/bilby.cython-{{ version }}.tar.gz
   sha256: 765f6fc9e47c887599960a7c385fd6862a51fb88306a7594d0808233daa6f7d8
+  patches:
+    # backport https://git.ligo.org/colm.talbot/bilby-cython/-/merge_requests/15
+    - 0001-setup.py-use-find_packages-to-find-all-packages.patch
 
 build:
   skip: true  # [py<38]
+  number: 1
   script: {{ PYTHON }} -m pip install . -vv
-  number: 0
 
 requirements:
   build:
