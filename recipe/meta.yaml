@@ -13,16 +13,20 @@ source:
     - 0001-setup.py-use-find_packages-to-find-all-packages.patch
 
 build:
-  skip: true  # [py<38]
+  error_overdepending: true
+  error_overlinking: true
+  ignore_run_exports:
+    # not directly linked
+    - numpy
   number: 1
   script: {{ PYTHON }} -m pip install . -vv
 
 requirements:
   build:
-    - python                                 # [build_platform != target_platform]
     - cross-python_{{ target_platform }}     # [build_platform != target_platform]
     - cython                                 # [build_platform != target_platform]
     - numpy                                  # [build_platform != target_platform]
+    - python                                 # [build_platform != target_platform]
     - {{ compiler('c') }}
   host:
     - cython
@@ -32,8 +36,8 @@ requirements:
     - setuptools
     - setuptools-scm
   run:
-    - python
     - {{ pin_compatible('numpy') }}
+    - python
 
 test:
   requires:
