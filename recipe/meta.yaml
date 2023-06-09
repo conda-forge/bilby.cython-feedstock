@@ -36,16 +36,16 @@ test:
   requires:
     - pip
     # requirements for testing
-    - astropy  # [unix, python_impl == 'cpython']
-    - bilby  # [unix, python_impl == 'cpython']
-    - pytest  # [unix, python_impl == 'cpython']
-    - python-lal  # [unix, python_impl == 'cpython']
+    - astropy  # [unix and python_impl == 'cpython']
+    - bilby  # [unix and python_impl == 'cpython']
+    - pytest  # [unix and python_impl == 'cpython']
+    - python-lal  # [unix and python_impl == 'cpython']
   commands:
     # check metadata
     - python -m pip check
     - python -m pip show bilby-cython
     # run test suite
-    - python -m pytest -ra -v --pyargs bilby_cython.test  # [unix, python_impl == 'cpython']
+    - python -m pytest -ra -v --pyargs bilby_cython.test  # [unix and python_impl == 'cpython']
 
 about:
   home: https://git.ligo.org/colm.talbot/bilby-cython
