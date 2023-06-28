@@ -1,5 +1,5 @@
 {% set name = "bilby.cython" %}
-{% set version = "0.4.0" %}
+{% set version = "0.4.2" %}
 
 package:
   name: {{ name|lower }}
@@ -7,10 +7,10 @@ package:
 
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/bilby.cython-{{ version }}.tar.gz
-  sha256: 765f6fc9e47c887599960a7c385fd6862a51fb88306a7594d0808233daa6f7d8
+  sha256: 530b891c7e17c9ea84879a2e7fa1d0c1f47946c9493cc840be9cd5cfd0267cb4
 
 build:
-  skip: true  # [py<38]
+  skip: true  # [py<39]
   script: {{ PYTHON }} -m pip install . -vv
   number: 0
 
@@ -33,13 +33,18 @@ requirements:
     - {{ pin_compatible('numpy') }}
 
 test:
-  imports:
-    - bilby_cython
-    - bilby_cython.geometry
-  commands:
-    - pip check
   requires:
     - pip
+    # requirements for testing
+    - astropy  # [unix and python_impl == 'cpython']
+    - bilby  # [unix and python_impl == 'cpython']
+    - pytest  # [unix and python_impl == 'cpython']
+    - python-lal  # [unix and python_impl == 'cpython']
+  commands:
+    # check metadata
+    - python -m pip show bilby-cython
+    # run test suite
+    - python -m pytest -ra -v --pyargs bilby_cython.test  # [unix and python_impl == 'cpython']
 
 about:
   home: https://git.ligo.org/colm.talbot/bilby-cython
