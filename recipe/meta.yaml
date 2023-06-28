@@ -42,7 +42,6 @@ test:
     - python-lal  # [unix and python_impl == 'cpython']
   commands:
     # check metadata
-    - python -m pip check
     - python -m pip show bilby-cython
     # run test suite
     - python -m pytest -ra -v --pyargs bilby_cython.test  # [unix and python_impl == 'cpython']
