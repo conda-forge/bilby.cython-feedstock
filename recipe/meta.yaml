@@ -1,5 +1,5 @@
 {% set name = "bilby.cython" %}
-{% set version = "0.5.0" %}
+{% set version = "0.5.1" %}
 
 package:
   name: {{ name|lower }}
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/bilby_cython-{{ version }}.tar.gz
-  sha256: 7ca8e06f1fd8df46a06174491617d6fb369c61b70bab2ab39a1a84af47df79fc
+  sha256: 71c8ba01597a7c450c3a48629843582be17b6a4a81e8cde9b461f8c946152ded
 
 build:
   skip: true  # [py<39]
@@ -21,6 +21,7 @@ requirements:
     - cython >=3                             # [build_platform != target_platform]
     - numpy                                  # [build_platform != target_platform]
     - {{ compiler('c') }}
+    - {{ stdlib("c") }}
   host:
     - cython
     - numpy
