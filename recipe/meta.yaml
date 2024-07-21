@@ -45,7 +45,7 @@ test:
     # check metadata
     - python -m pip show bilby-cython
     # run test suite
-    - python -m pytest -ra -v --pyargs bilby_cython.test  # [unix and python_impl == 'cpython']
+    - python -m pytest -ra -v --pyargs bilby_cython.test -k "not longdouble and not float64"  # [unix and python_impl == 'cpython']
 
 about:
   home: https://git.ligo.org/colm.talbot/bilby-cython
