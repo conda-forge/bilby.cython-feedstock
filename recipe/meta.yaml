@@ -1,5 +1,5 @@
 {% set name = "bilby.cython" %}
-{% set version = "0.5.2" %}
+{% set version = "0.5.3" %}
 
 package:
   name: {{ name|lower }}
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/bilby_cython-{{ version }}.tar.gz
-  sha256: 6ed083ad093420f91cb76bdd5cf85fc3950597b16d451d38987571ed8f9112a7
+  sha256: 44400b2abc6fa592b13d69f33460cb156d6edb48a783f5539ee0a21e1d0a3508
 
 build:
   skip: true  # [py<39]
