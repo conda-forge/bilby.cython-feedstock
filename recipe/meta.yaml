@@ -12,7 +12,7 @@ source:
 build:
   skip: true  # [py<39]
   script: {{ PYTHON }} -m pip install . -vv
-  number: 0
+  number: 1
 
 requirements:
   build:
@@ -36,7 +36,7 @@ test:
   requires:
     - pip
     # requirements for testing
-    - astropy  # [unix and python_impl == 'cpython']
+    - astropy-base  # [unix and python_impl == 'cpython']
     - bilby  # [unix and python_impl == 'cpython']
     - pytest  # [unix and python_impl == 'cpython']
     - python-lal  # [unix and python_impl == 'cpython']
