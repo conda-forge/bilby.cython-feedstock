@@ -37,7 +37,7 @@ test:
     - pip
     # requirements for testing
     - astropy-base  # [unix and python_impl == 'cpython']
-    - bilby  # [unix and python_impl == 'cpython']
+    - bilby >= 2.4  # [unix and python_impl == 'cpython']
     - pytest  # [unix and python_impl == 'cpython']
     - python-lal  # [unix and python_impl == 'cpython']
   commands:
