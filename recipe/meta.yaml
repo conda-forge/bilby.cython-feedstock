@@ -1,5 +1,6 @@
 {% set name = "bilby.cython" %}
 {% set version = "0.5.2" %}
+{% set python_min = "3.10" %}
 
 package:
   name: {{ name|lower }}
@@ -10,13 +11,13 @@ source:
   sha256: 6ed083ad093420f91cb76bdd5cf85fc3950597b16d451d38987571ed8f9112a7
 
 build:
-  skip: true  # [py<39]
+  skip: true  # [py<310]
   script: {{ PYTHON }} -m pip install . -vv
   number: 1
 
 requirements:
   build:
-    - python                                 # [build_platform != target_platform]
+    - python                              # [build_platform != target_platform]
     - cross-python_{{ target_platform }}     # [build_platform != target_platform]
     - cython >=3                             # [build_platform != target_platform]
     - numpy                                  # [build_platform != target_platform]
