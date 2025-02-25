@@ -7,13 +7,13 @@ package:
   version: {{ version }}
 
 source:
-  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/bilby_cython-{{ version }}.tar.gz
+  url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/bilby_cython-{{ version }}.tar.gz
   sha256: 6ed083ad093420f91cb76bdd5cf85fc3950597b16d451d38987571ed8f9112a7
 
 build:
   skip: true  # [py<310]
   script: {{ PYTHON }} -m pip install . -vv
-  number: 1
+  number: 2
 
 requirements:
   build:
