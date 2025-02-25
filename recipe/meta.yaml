@@ -1,5 +1,5 @@
 {% set name = "bilby.cython" %}
-{% set version = "0.5.2" %}
+{% set version = "0.5.3" %}
 {% set python_min = "3.10" %}
 
 package:
@@ -8,12 +8,12 @@ package:
 
 source:
   url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/bilby_cython-{{ version }}.tar.gz
-  sha256: 6ed083ad093420f91cb76bdd5cf85fc3950597b16d451d38987571ed8f9112a7
+  sha256: 44400b2abc6fa592b13d69f33460cb156d6edb48a783f5539ee0a21e1d0a3508
 
 build:
   skip: true  # [py<310]
   script: {{ PYTHON }} -m pip install . -vv
-  number: 2
+  number: 0
 
 requirements:
   build:
@@ -52,7 +52,6 @@ test:
     - pandas  # [unix and python_impl == 'cpython']
     - pytables  # [unix and python_impl == 'cpython']
     - tqdm  # [unix and python_impl == 'cpython']
-  
   commands:
     # check metadata
     - python -m pip show bilby-cython
