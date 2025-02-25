@@ -41,7 +41,7 @@ test:
     - bilby >= 2.4  # [unix and python_impl == 'cpython']
     - pytest  # [unix and python_impl == 'cpython']
     - python-lal  # [unix and python_impl == 'cpython']
-    - scipy < 1.14  # [unix and python_impl == 'cpython']
+    - scipy < 1.15  # [unix and python_impl == 'cpython']
   commands:
     # check metadata
     - python -m pip show bilby-cython
