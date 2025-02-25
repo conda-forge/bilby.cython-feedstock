@@ -7,13 +7,13 @@ package:
   version: {{ version }}
 
 source:
-  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/bilby_cython-{{ version }}.tar.gz
+  url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/bilby_cython-{{ version }}.tar.gz
   sha256: 6ed083ad093420f91cb76bdd5cf85fc3950597b16d451d38987571ed8f9112a7
 
 build:
   skip: true  # [py<310]
   script: {{ PYTHON }} -m pip install . -vv
-  number: 1
+  number: 2
 
 requirements:
   build:
@@ -38,14 +38,26 @@ test:
     - pip
     # requirements for testing
     - astropy-base  # [unix and python_impl == 'cpython']
-    - bilby >= 2.4  # [unix and python_impl == 'cpython']
     - pytest  # [unix and python_impl == 'cpython']
     - python-lal  # [unix and python_impl == 'cpython']
-    - scipy < 1.14  # [unix and python_impl == 'cpython']
+    - scipy < 1.15  # [unix and python_impl == 'cpython']
+    - attrs  # [unix and python_impl == 'cpython']
+    - corner  # [unix and python_impl == 'cpython']
+    - dill  # [unix and python_impl == 'cpython']
+    - dynesty >=2.0.1  # [unix and python_impl == 'cpython']
+    - emcee  # [unix and python_impl == 'cpython']
+    - h5py  # [unix and python_impl == 'cpython']
+    - matplotlib-base  # [unix and python_impl == 'cpython']
+    - packaging  # [unix and python_impl == 'cpython']
+    - pandas  # [unix and python_impl == 'cpython']
+    - pytables  # [unix and python_impl == 'cpython']
+    - tqdm  # [unix and python_impl == 'cpython']
+  
   commands:
     # check metadata
     - python -m pip show bilby-cython
     # run test suite
+    - python -m pip install bilby --no-deps  # [unix and python_impl == 'cpython']
     - python -m pytest -ra -v --pyargs bilby_cython.test -k "not longdouble and not float64"  # [unix and python_impl == 'cpython']
 
 about:
