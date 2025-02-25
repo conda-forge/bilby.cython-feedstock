@@ -38,13 +38,13 @@ test:
     - pip
     # requirements for testing
     - astropy-base  # [unix and python_impl == 'cpython']
-    - bilby >= 2.4  # [unix and python_impl == 'cpython']
     - pytest  # [unix and python_impl == 'cpython']
     - python-lal  # [unix and python_impl == 'cpython']
     - scipy < 1.15  # [unix and python_impl == 'cpython']
   commands:
     # check metadata
     - python -m pip show bilby-cython
+    - python -m pip install bilby
     # run test suite
     - python -m pytest -ra -v --pyargs bilby_cython.test -k "not longdouble and not float64"  # [unix and python_impl == 'cpython']
 
