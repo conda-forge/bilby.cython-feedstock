@@ -40,7 +40,7 @@ test:
     - astropy-base  # [unix and python_impl == 'cpython']
     - pytest  # [unix and python_impl == 'cpython']
     - python-lal  # [unix and python_impl == 'cpython']
-    - scipy < 1.15  # [unix and python_impl == 'cpython']
+    - scipy  # [unix and python_impl == 'cpython']
     - attrs  # [unix and python_impl == 'cpython']
     - corner  # [unix and python_impl == 'cpython']
     - dill  # [unix and python_impl == 'cpython']
