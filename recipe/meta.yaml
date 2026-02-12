@@ -37,21 +37,21 @@ test:
   requires:
     - pip
     # requirements for testing
-    - astropy-base  # [unix and python_impl == 'cpython']
-    - pytest  # [unix and python_impl == 'cpython']
-    - python-lal  # [unix and python_impl == 'cpython']
-    - scipy  # [unix and python_impl == 'cpython']
-    - attrs  # [unix and python_impl == 'cpython']
-    - corner  # [unix and python_impl == 'cpython']
-    - dill  # [unix and python_impl == 'cpython']
-    - dynesty >=2.0.1  # [unix and python_impl == 'cpython']
-    - emcee  # [unix and python_impl == 'cpython']
-    - h5py  # [unix and python_impl == 'cpython']
-    - matplotlib-base  # [unix and python_impl == 'cpython']
-    - packaging  # [unix and python_impl == 'cpython']
-    - pandas  # [unix and python_impl == 'cpython']
-    - pytables  # [unix and python_impl == 'cpython']
-    - tqdm  # [unix and python_impl == 'cpython']
+    - astropy-base  # [unix]
+    - pytest  # [unix]
+    - python-lal  # [unix]
+    - scipy  # [unix]
+    - attrs  # [unix]
+    - corner  # [unix]
+    - dill  # [unix]
+    - dynesty >=2.0.1  # [unix]
+    - emcee  # [unix]
+    - h5py  # [unix]
+    - matplotlib-base  # [unix]
+    - packaging  # [unix]
+    - pandas  # [unix]
+    - pytables  # [unix]
+    - tqdm  # [unix]
   commands:
     # check metadata
     - python -m pip show bilby-cython
